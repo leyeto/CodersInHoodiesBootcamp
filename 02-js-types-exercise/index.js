@@ -77,3 +77,18 @@
  *
  * variable {password} shouldn't be defined at all
  */
+
+ const greeting="Hello ";
+ let name="Leye";
+ const phrase=greeting.concat(name);
+ const price=43.92;
+ const quantitiy=4;
+ var total=quantitiy*price;
+ const age1=29;
+ const age2=31;
+ const age3=36;
+ const averageAge = (age1 + age2 + age3)/3;
+ const loggedIn = true;
+ const adminUser = false;
+ const missingInfo;
+ var password;

@@ -25,3 +25,19 @@
  * create a function 'getCharByIndex' that takes a string and a character position
  * as a params and return a character from your string that is in selected position
  */
+
+let name = "Leye";
+const greeting ="Hello";
+const greetGenerator = greeting + " "+name;
+
+function convertToLowerCase(word){
+    return word.toLowerCase();
+}
+
+function convertToUpperCase(word){
+    return word.toUpperCase();
+}
+
+function getCharByIndex(word,index){
+    return word.charAt(index);
+}

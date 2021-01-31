@@ -15,3 +15,7 @@
  *
  * {age} can be reassigned
  */
+
+
+ const userName="Leye";
+ let age=19;
