@@ -29,6 +29,7 @@
 let name = "Leye";
 const greeting ="Hello";
 const greetGenerator = greeting + " "+name;
+// greetGenerator failing for some reason, Not sure why
 
 function convertToLowerCase(word){
     return word.toLowerCase();
