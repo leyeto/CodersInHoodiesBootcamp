@@ -43,3 +43,14 @@ const sortOrder = "ALPHABETICAL";
  * create a variable {fruits} which should be equal to
  * "banana, cherry, watermelon" if {sortOrder} equals to "ALPHABETICAL"
  */
+
+const targetMatchesCoercedUserValue=target==userValue;
+const targetMatchesUserValue=target===userValue;
+let passwordMessage;
+const passwordMatchesConfirmation=password==passwordConfirmation;
+if(passwordMatchesConfirmation === false){
+    passwordMessage = "Oops, your password and confirmation do not match!";
+    }
+if(sortOrder === "ALPHABETICAL"){
+    fruits="banana, cherry, watermelon";
+}

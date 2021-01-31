@@ -37,3 +37,22 @@
  * alert(read about it) with the message "My favorite city is YOUR_CITY"
  *
  */
+
+ const myFavoriteAnimal="Wolf";
+
+ function myAnimalWithLog(){
+     console.log("My favorite animal is "+myFavoriteAnimal);
+ }
+
+ function myAnimalWithWarn(){
+     console.warn("My favorite animal is "+myFavoriteAnimal);
+ }
+
+ function myAnimalWithError(){
+     console.error("My favorite animal is "+myFavoriteAnimal);
+ }
+
+ function myCity(){
+     const YOUR_CITY="Lagos";
+     alert("My favorite city is "+YOUR_CITY);
+ }
