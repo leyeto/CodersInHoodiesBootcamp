@@ -60,3 +60,37 @@
  *
  * use "switch" for this exercise
  */
+
+var age =25;
+var favoriteLanguage = "JavaScript";
+var favoriteCity = "London"||"Paris"||"Milan"||"Barcelona";
+
+function isAccessGranted(age , favoriteLanguage){
+    if(age >= 18 || favoriteLanguage ==="JavaScript"){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function greeting(age , favoriteLanguage){
+    if(age >= 18 && favoriteLanguage === "JavaScript"){
+        return "You are a frontend developer";
+    }else{
+        return "You pick the wrong career";
+    }
+}
+
+function checkTheNumber(number){
+    if(number > 10){
+        return "More than 10";
+    // }else if(number < 10){
+    //     return "Less than 10";
+    }else if(number > 5 && number < 10){
+        return "Less than 10";
+    }else if(number < 5){
+        return "Less than 5";
+    }else{
+        return null;
+    }
+}

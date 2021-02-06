@@ -63,3 +63,43 @@
  *
  * NOTE: additionally you can have console.log() to log the result
  */
+
+function sum(a, b){
+    var sum = a + b;
+    console.log(sum);
+    return sum;
+}
+
+function subtract(a, b){
+    var diff = a - b;
+    console.log(diff);
+    return diff;
+}
+
+function multiply(a,b){
+    var multiple = a * b;
+    console.log(multiple);
+    return multiple;
+}
+
+function divide(a , b){
+    var div = a / b;
+    console.log(div);
+    return div;
+}
+
+function getRemainder(a , b){
+    var remainder = a % b;
+    console.log(remainder);
+    return remainder;
+}
+
+function increment(a){
+    console.log(a++)
+    return a++;
+}
+
+function decrement(a){
+    console.log(a--)
+    return a--;
+}
