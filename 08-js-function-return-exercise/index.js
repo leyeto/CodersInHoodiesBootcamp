@@ -33,3 +33,26 @@
  * Create a function `getOppositeNumber` that takes a number as a param and
  * returns an opposite number
  */
+
+ function greet(your_name){
+     return "Hello "+your_name +"!";
+ }
+
+ function loginValidation(age){
+     if(age >= 18){
+         return "Welcome!";
+     }else{
+         return "Sorry, not allowed.";
+     }
+ }
+
+ function minNumber(a,b){
+     return Math.min(a,b);
+ }
+
+ function randomNumber(){
+     return Math.ceil(Math.random()*10);
+ }
+ function getOppositeNumber(x){
+     return -x;
+ }
