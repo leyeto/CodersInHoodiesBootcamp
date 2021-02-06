@@ -94,3 +94,24 @@ function checkTheNumber(number){
         return null;
     }
 }
+
+function greetOnLocalLanguage(favoriteCity){
+    switch(favoriteCity){
+        case "London":
+            return "Hello";
+            break;
+
+        case "Paris":
+            return "Bonjour";
+            break;
+        case "Milan":
+            return "Ciao";
+            break;
+        case "Barcelona":
+            return "Hola"
+            break;
+        default: 
+        return "I don't speak your language";
+    }
+
+}
