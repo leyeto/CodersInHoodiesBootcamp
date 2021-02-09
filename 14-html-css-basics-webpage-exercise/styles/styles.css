@@ -1,0 +1,15 @@
+body{
+    background-color: #91D239;
+}
+h1,h3{
+    text-align: center;
+}
+img{
+    width: 50%;
+    margin:2% 25%;
+}
+p{
+    width: 50rem;
+    text-align: center;
+    margin:2% 23%;
+}
