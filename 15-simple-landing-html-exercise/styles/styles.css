@@ -56,7 +56,31 @@ body {
   display: flex;
 }
 
-.grid {
+.doge {
+  background-image: url("C:/Users/Leye/Documents/Coders in Hoods/CodersInHoodiesBootcamp/15-simple-landing-html-exercise/images/dog-2583924_1920.png");
+  display: flex;
+  height: 27vh;
+  min-width: 25vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer-section {
+  background-color: black;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  padding: 4rem 5rem;
+  width: 80vw;
+}
+
+.footer-element {
+  padding: 0 5rem;
+  width: 30vw;
 }
 
 h1 {
