@@ -1,52 +1,132 @@
-html{
-    font-size: 17px;
+html {
+  font-size: 17px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
 }
-h1{
-    font-size: 3rem;
-}
-h3{
-    font-size: 2rem;
-}
-
-.html-css{
-    display: flex;
-}
-.html-back{
-    background-image: url("C:/Users/Leye/Documents/Coders in Hoods/CodersInHoodiesBootcamp/15-simple-landing-html-exercise/images/code-3637299_1920.png");
-    /* opacity: 0.6; */
-    background-size: cover;
-    filter: grayscale(100%);
-    flex-basis: 25vw;
-
-}
-.nav-element{
-   flex-wrap: nowrap;
-   padding: 0 2%;
-}
-#title{
-    background-color:black; 
-    height: 90vh;
-    background-image: url("C:/Users/Leye/Documents/Coders in Hoods/CodersInHoodiesBootcamp/15-simple-landing-html-exercise/images/wave-1817646_1920.png");
-    background-size: cover;
-
-}
-#title h1,h3,.nav-element{
-    color: white;
-}
-.title-text{
-    position: relative;    
-    left: 10%;
-    top: 40%;
+body {
+  margin: 0 0;
 }
 
-nav{
-    display: flex;
-    flex-flow: row wrap;
-    float: right;
+.box {
+  display: flex;
+  height: 60vh;
 }
 
-.wrap{
-    height: 60vh;
-    width: 40vw;
-    display: flex;
+.centered-text {
+  display: flex;
+  justify-content: center;
+}
+
+.coding {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1rem 7rem;
+}
+
+.coding img {
+  padding: 1rem;
+}
+
+.easiest-column {
+  padding: 2rem;
+}
+
+.easiest-way {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10rem;
+}
+
+.easiest {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.easiest-you {
+  color: #5d5d5d;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+}
+
+h1 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 2rem;
+}
+
+.html-css {
+  display: flex;
+  justify-content: center;
+  width: 90vw;
+  padding: 5rem;
+}
+
+.html-back {
+  background-image: url("C:/Users/Leye/Documents/Coders in Hoods/CodersInHoodiesBootcamp/15-simple-landing-html-exercise/images/code-3637299_1920.png");
+  background-size: cover;
+  filter: grayscale(100%);
+  align-items: center;
+  justify-content: center;
+  width: 150%;
+  mix-blend-mode: normal;
+  opacity: 0.92;
+}
+
+.html-css-note {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+.minion {
+  display: inline-flex;
+  justify-content: flex-start;
+}
+
+nav {
+  font-weight: 700;
+  font-size: 0.9rem;
+  float: right;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav ul {
+  display: flex;
+  padding-right: 5rem;
+}
+
+.nav-element {
+  padding: 0.75rem 1rem;
+}
+#title {
+  padding-top: 1rem;
+  background-color: black;
+  height: 90vh;
+  background-image: url("C:/Users/Leye/Documents/Coders in Hoods/CodersInHoodiesBootcamp/15-simple-landing-html-exercise/images/wave-1817646_1920.png");
+  background-size: cover;
+}
+
+.title-text {
+  position: relative;
+  left: 10%;
+  top: 40%;
+}
+
+.white-text {
+  color: white;
 }
