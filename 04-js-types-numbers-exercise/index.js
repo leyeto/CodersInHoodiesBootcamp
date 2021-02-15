@@ -6,6 +6,15 @@
  * anything else
  */
 
+function isOdd(number) {
+  let remainder = number % 2;
+  if (remainder == 1) {
+    return "Is odd";
+  } else {
+    return "Not odd";
+  }
+}
+
 /**
  * Exercise 2
  *
@@ -63,57 +72,47 @@
  * and returns the minimum number
  */
 
+function isEven(number) {
+  let remainder = number % 2;
+  if (remainder == 0) {
+    return "Is even";
+    //Error isEven return string for even number
+  } else {
+    return "Not even";
+  }
+}
 
- function isOdd(number){
-     let remainder = number % 2;
-     if(remainder == 1){         
-         return "Is odd";
-     }else{
-         return "Not odd";
-     }
- }
+function oddOrEven(number) {
+  let remainder = number % 2;
+  if (remainder == 1) {
+    return "Is odd";
+  }
+  if (remainder == 0) {
+    return "Is even";
+    //  Error oddOrEven return string for even number
+  }
+}
 
- function isEven(number){
-     let remainder = number % 2;
-     if(remainder == 2){
-         return "Is even";
-         //Error isEven return string for even number 
-     }else{
-         return "Not even";
-     }
- }
+function roundedNumber(number) {
+  return Math.round(number);
+}
 
- function oddOrEven(number){
-     let remainder = number % 2;
-     if(remainder == 1){
-         return "Is odd";
-     }
-     if(remainder == 2){
-         return "Is even";
-        //  Error oddOrEven return string for even number
-     }
- }
+function roundToLowerInteger(number) {
+  return Math.floor(number);
+}
 
- function roundedNumber(number){
-     return Math.round(number);     
- }
+function roundToLargerInteger(number) {
+  return Math.ceil(number);
+}
 
- function roundToLowerInteger(number){
-     return Math.floor(number);
- }
+function convertToPositive(number) {
+  return -number;
+}
 
- function roundToLargerInteger(number){
-     return Math.ceil(number);
- }
+function findMaxNumber(number1, number2, number3, number4) {
+  return Math.max(number1, number2, number3, number4);
+}
 
- function convertToPositive(number){
-     return -(number);
- }
-
- function findMaxNumber(number1, number2, number3, number4){
-     return Math.max(number1,number2,number3,number4);
- }
-
- function findMinNumber(number1, number2, number3, number4){
-    return Math.min(number1,number2,number3,number4);
+function findMinNumber(number1, number2, number3, number4) {
+  return Math.min(number1, number2, number3, number4);
 }
