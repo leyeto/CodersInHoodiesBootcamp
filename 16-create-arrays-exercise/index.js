@@ -104,3 +104,5 @@ const moreThanFour = numbers.find(function (number) {
  * Create variable {moreEqualThanSeven} returns first number
  * from {numbers} that are more or equal 7
  */
+
+//  Couldn't figure this out, Vasile said known error

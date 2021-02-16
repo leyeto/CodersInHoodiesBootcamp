@@ -32,6 +32,8 @@ carBrands.shift();
  * * PS: console.log() the result to see the difference
  */
 
+//  Cannot see console.log
+
 /**
  * Exercise 4
  *

@@ -30,6 +30,7 @@ animals.unshift("rabbit");
  * PS: console.log() the result to see the difference
  */
 animals.splice(2, 0, "puma");
+// Error: × 'puma' should be second in animals (5ms)
 
 /**
  * create an array {wildAnimals} with "lion"
