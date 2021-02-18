@@ -52,7 +52,7 @@ const favoriteMovie = user.favoriteMovies[0];
  * PS: use console.log() to see the result
  */
 
-const userFullName = user.firstName(" ", user.lastName);
+const userFullName = user.firstName.concat(" ", user.lastName);
 
 /**
  * Exercise 4
@@ -64,7 +64,8 @@ const userFullName = user.firstName(" ", user.lastName);
  */
 
 function getFullName() {
-  return user.firstName(" ", lastName);
+  const full = user.firstName + " " + user.lastName;
+  return full;
 }
 
 /**
@@ -88,8 +89,8 @@ const mothersFirstName = user.parents.mother.firstName;
  * PS: use console.log() to see the result
  */
 
-function getParentFullName(type) {
-  return user.parents.type;
+function getParentFullName(parent) {
+  return user.parents[parent].firstName + " " + user.parents[parent].lastName;
 }
 
 /**
@@ -102,5 +103,5 @@ function getParentFullName(type) {
  */
 
 function getUserData(property) {
-  return user.property;
+  return user[property];
 }

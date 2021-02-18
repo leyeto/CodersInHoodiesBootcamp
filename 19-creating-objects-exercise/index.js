@@ -41,10 +41,11 @@ let allTypes = {
  * PS: use console.log() to see the result
  */
 
-function createMovieObject(name,rating,ticketPrice) {
-    const movie = {
-        name: name,
-        rating: rating,
-        ticketPrice: ticketPrice,
-  return Object.values(movie);
-}}
+function createMovieObject(name, rating, ticketPrice) {
+  movie = {
+    name: name,
+    rating: rating,
+    ticketPrice: ticketPrice,
+  };
+  return movie;
+}

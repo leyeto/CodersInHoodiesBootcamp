@@ -4,12 +4,20 @@
  * Create an object {user} and add properties "firstName" and "lastName".
  */
 
+user = new Object();
+user.firstName = "John";
+user.lastName = "Doe";
+
 /**
  * Exercise 2
  *
  * Create an object {userRead} and add properties "books" and "newspapers".
  * Both should be arrays with strings.
  */
+
+userRead = new Object();
+userRead.books = ["Harry Potter", "Painted Man"];
+userRead.newspapers = ["Times", "The Sun"];
 
 /**
  * Exercise 3
@@ -26,6 +34,7 @@
  *   newspapers: []
  * }
  */
+user = Object.assign(user, userRead);
 
 /**
  * Exercise 4
@@ -33,6 +42,10 @@
  * Create an object {userWatch} and add properties "tvShows" and "movies".
  * Both should be arrays with strings.
  */
+
+userWatch = new Object();
+userWatch.tvShows = ["Shameless"];
+userWatch.movies = ["Dark Knight"];
 
 /**
  * Exercise 5
@@ -54,3 +67,6 @@
  *   }
  * }
  */
+
+user = Object.assign({}, user, userWatch);
+console.log(user);

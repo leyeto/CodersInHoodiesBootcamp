@@ -32,7 +32,9 @@ carBrands.shift();
  * * PS: console.log() the result to see the difference
  */
 
-//  Cannot see console.log
+console.log(carBrands);
+carBrands.splice(1, 1);
+console.log(carBrands);
 
 /**
  * Exercise 4
@@ -41,3 +43,6 @@ carBrands.shift();
  *
  * * PS: console.log() the result to see the difference
  */
+
+carBrands.splice(1, 1, "Rolls-Royce");
+console.log(carBrands);
