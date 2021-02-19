@@ -68,5 +68,4 @@ userWatch.movies = ["Dark Knight"];
  * }
  */
 
-user = Object.assign({}, user, userWatch);
-console.log(user);
+user.userWatch = userWatch;

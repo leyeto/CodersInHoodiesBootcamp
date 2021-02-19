@@ -54,7 +54,7 @@ function getElementIndex(number) {
 
 function total() {
   var sum = 0;
-  for (var i = 0; i < numbers; i++) {
+  for (var i = 0; i < numbers.length; i++) {
     sum += numbers[i];
   }
   return sum;
@@ -70,11 +70,12 @@ const numbersForIndexes = [6, 2, 16, 23, 84, 21, 9, 3]; // DON'T TOUCH THIS LINE
 
 function addIndex() {
   var addedArray = [];
-  for (var i = 0; i < numbers.length; i++) {
-    addedArray.push(numbers[i] + i);
+  for (var i = 0; i < numbersForIndexes.length; i++) {
+    addedArray.push(numbersForIndexes[i] + i);
   }
   return addedArray;
 }
+console.log(addIndex());
 
 const forLowestNumber = [5, 234, 96, 34, -34, 0, 23]; // DON'T TOUCH THIS LINE :)
 /**
