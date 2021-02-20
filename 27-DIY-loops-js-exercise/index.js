@@ -38,6 +38,34 @@ const dataTypes = [
  * }
  */
 
+function sortedData(dataTypes) {
+  let strings = [];
+  let integers = [];
+  let floats = [];
+  let arrays = [];
+  let objects = [];
+  for (let data of dataTypes) {
+    if (Number.isInteger(data)) {
+      integers.push(data);
+    } else if (Array.isArray(data)) {
+      arrays.push(data);
+    } else if (typeof data === "object") {
+      objects.push(data);
+    } else if (typeof data === "string") {
+      strings.push(data);
+    } else if (!Number.isInteger(data) && data % 1 !== 0) {
+      floats.push(data);
+    }
+  }
+  const sortedObject = {};
+  sortedObject.integers = integers;
+  sortedObject.strings = strings;
+  sortedObject.floats = floats;
+  sortedObject.arrays = arrays;
+  sortedObject.objects = objects;
+  return sortedObject;
+}
+
 /**
  * Exercise 2
  *
@@ -49,6 +77,18 @@ const dataTypes = [
  * Ex: pass [3,2,6]
  * result: [6, 12, 6]
  */
+
+function multipliedByNextNumber(array) {
+  multiplyNextArray = [];
+
+  for (let i = 0; i < array.length - 1; i++) {
+    multiplyNextArray.push(array[i] + array[i + 1]);
+  }
+  multiplyNextArray.push(array[array.length - 1] * 1);
+
+  return multiplyNextArray;
+}
+multipliedByNextNumber([3, 5, 3, 3, 8, 32, 21, 24, 8]);
 
 /**
  * Exercise 3
@@ -63,6 +103,31 @@ const dataTypes = [
  * result: [24, 3, 48, 16, 5, 7]
  */
 
+function multipliedEvenNumbers(array) {
+  nextEven = 1;
+  modifiedEven = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 1) {
+      modifiedEven.push(array[i]);
+    }
+    if (array[i] % 2 === 0) {
+      while (array[i + 1] % 2 === 0) {
+        nextEven = array[i + 1];
+        modifiedEven.push(array[i] * nextEven);
+        nextEven = 1;
+        i++;
+      }
+      if (nextEven === 1) {
+        modifiedEven.push(array[i] * 2);
+      }
+    }
+  }
+  console.log(modifiedEven);
+  return modifiedEven;
+}
+
+multipliedEvenNumbers([2, 5, 6, 2, 13, 7, 5, 7]);
+
 /**
  * Exercise 4
  *
@@ -75,6 +140,29 @@ const dataTypes = [
  * ex: multipliedEvenNumbers([4,3,6,8,5,7])
  * result: [4, 15, 6, 8, 35, 7]
  */
+
+function multipliedOddNumbers(array) {
+  nextOdd = 1;
+  modifiedOdd = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+      modifiedOdd.push(array[i]);
+    }
+    if (array[i] % 2 === 1) {
+      while (array[i + 1] % 2 === 1) {
+        nextOdd = array[i + 1];
+        modifiedOdd.push(array[i] * nextOdd);
+        nextOdd = 1;
+        i++;
+      }
+      if (nextOdd === 1) {
+        modifiedEven.push(array[i] * 1);
+      }
+    }
+  }
+  console.log(modifiedOdd);
+  return modifiedOdd;
+}
 
 /**
  * Exercise 5

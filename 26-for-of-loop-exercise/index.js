@@ -96,14 +96,14 @@ function evenOddTransform(array) {
   }
   return newArray;
 
+  function evenOddTransform(numbers) {
+    let modifiedNumbers = [];
+    for (let number of numbers) {
+      // read about ternaries
+      const modifier = number % 2 ? 1 : -1;
 
-// function evenOddTransform(numbers) {
-//   let modifiedNumbers = [];
-//   for (let number of numbers) {
-//     // read about ternaries
-//     const modifier = number % 2 ? 1 : -1;
-
-//     modifiedNumbers.push(number + modifier);
-//   }
-//   return modifiedNumbers;
-// }
+      modifiedNumbers.push(number + modifier);
+    }
+    return modifiedNumbers;
+  }
+}
