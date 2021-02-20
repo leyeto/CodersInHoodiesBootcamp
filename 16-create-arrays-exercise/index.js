@@ -105,4 +105,10 @@ const moreThanFour = numbers.find(function (number) {
  * from {numbers} that are more or equal 7
  */
 
+const moreEqualThanSeven = numbers.find(function (number) {
+  return number >= 7;
+});
+
 //  Couldn't figure this out, Vasile said known error
+
+getName();

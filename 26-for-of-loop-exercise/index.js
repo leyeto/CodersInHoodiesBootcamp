@@ -10,11 +10,13 @@
  * a new array with these integers. If there is no integers it should return
  * empty array.
  */
-let array = [];
+
 function getIntegersOnly(array) {
   let newArray = [];
-  for (let i of array) {
-    newArray.push(Math.round(array[i]));
+  for (let element of array) {
+    if (Number.isInteger(element)) {
+      newArray.push(element);
+    }
   }
   return newArray;
 }
@@ -28,9 +30,9 @@ function getIntegersOnly(array) {
 
 function getEvenNumbers(array) {
   let newArray = [];
-  for (let i of array) {
-    if (array[i] % 2 === 0) {
-      newArray.push(array[i]);
+  for (let element of array) {
+    if (element % 2 === 0) {
+      newArray.push(element);
     }
   }
   return newArray;
@@ -47,9 +49,9 @@ function getEvenNumbers(array) {
 
 function getEvenNumbersFromMixedArray(array) {
   let newArray = [];
-  for (let i of array) {
-    if (Math.round(array[i]) % 2 === 0) {
-      newArray.push(array[i]);
+  for (let element of array) {
+    if (Number.isInteger(element) && element % 2 === 0) {
+      newArray.push(element);
     }
   }
   return newArray;
@@ -64,9 +66,9 @@ function getEvenNumbersFromMixedArray(array) {
 
 function getOddNumbers(array) {
   let newArray = [];
-  for (let i of array) {
-    if (Math.round(array[i]) % 2 === 1) {
-      newArray.push(array[i]);
+  for (let element of array) {
+    if (element % 2 === 1) {
+      newArray.push(element);
     }
   }
   return newArray;
@@ -84,13 +86,24 @@ function getOddNumbers(array) {
 
 function evenOddTransform(array) {
   let newArray = [];
-  for (let i of array) {
-    if (Math.round(array[i]) % 2 === 0) {
-      newArray.push(array[i] - 1);
+  for (let element of array) {
+    if (element % 2 === 0) {
+      newArray.push(element - 1);
     }
-    if (Math.round(array[i]) % 2 === 1) {
-      newArray.push(array[i] + 1);
+    if (element % 2 === 1) {
+      newArray.push(element + 1);
     }
   }
   return newArray;
-}
+
+
+// function evenOddTransform(numbers) {
+//   let modifiedNumbers = [];
+//   for (let number of numbers) {
+//     // read about ternaries
+//     const modifier = number % 2 ? 1 : -1;
+
+//     modifiedNumbers.push(number + modifier);
+//   }
+//   return modifiedNumbers;
+// }

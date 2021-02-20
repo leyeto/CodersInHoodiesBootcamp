@@ -32,13 +32,20 @@ function countdown() {
 
 function countdownWithParam(number) {
   while (number >= 0) {
-    if (count === 0) {
+    if (number === 0) {
       console.log("Go!");
       break;
     }
     console.log("Remaining: " + number);
     number--;
   }
+
+  // while (number > 0) {
+  //   console.log("Remaining: " + number);
+  //   number--;
+  // }
+
+  // console.log("Go!");
 }
 
 // ==========================
@@ -69,14 +76,11 @@ function rulerConstructor() {
  * "Neighbour" to the array until you have at least 5 guests.
  * Without using an if statement!
  */
-let guest = [];
-function partyPadding(guests) {
-  var length = guests.length;
-  guests.fill(5 - guests.length, "Neighbour");
-  while (length <= 5) {
-    guests.push("Neighbour");
-    length++;
-  }
-}
 
-partyPadding();
+function partyPadding(guests) {
+  while (guests.length < 5) {
+    guests.push("Neighbour");
+  }
+
+  return guests;
+}

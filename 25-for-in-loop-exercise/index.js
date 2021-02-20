@@ -7,7 +7,7 @@
 
 function logProperties(object) {
   for (let property in object) {
-    console.log(`${property}: ${object[property]} \n`);
+    console.log(`Property name: ${property}`);
   }
 }
 
@@ -18,10 +18,12 @@ function logProperties(object) {
  */
 
 function getAllValues(object) {
-  var array = [];
+  let objectValues = [];
   for (let property in object) {
-    array.push(object[property]);
+    objectValues.push(object[property]);
   }
+
+  return objectValues;
 }
 
 /**
@@ -30,11 +32,13 @@ function getAllValues(object) {
  * and returns all values as one string with space separation.
  */
 function getAllValuesAsString(object) {
-  var str = "";
+  let str = "";
   for (let property in object) {
     str += object[property] + " ";
   }
-  return str;
+
+  // read about trim method in JS
+  return str.trim();
 }
 
 /**
@@ -44,9 +48,7 @@ function getAllValuesAsString(object) {
  * "{key}: {value}"
  */
 function propertyValueString(object) {
-  var str = "";
   for (let property in object) {
-    str += ` ${property} : ${object[property]} \n`;
+    console.log(`${property}: ${object[property]}`);
   }
-  return str;
 }
