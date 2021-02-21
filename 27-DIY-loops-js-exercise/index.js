@@ -177,5 +177,7 @@ function multipliedEvenOddNumbers(numbers, type) {
   }
   if (type === "odd") {
     return multipliedOddNumbers(numbers);
+  } else {
+    return numbers;
   }
 }
