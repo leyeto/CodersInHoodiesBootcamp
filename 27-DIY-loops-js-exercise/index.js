@@ -79,16 +79,17 @@ function sortedData(dataTypes) {
  */
 
 function multipliedByNextNumber(array) {
-  multiplyNextArray = [];
+  let multiplyNextArray = [];
 
-  for (let i = 0; i < array.length - 1; i++) {
-    multiplyNextArray.push(array[i] + array[i + 1]);
+  for (let i = 0; i < array.length; i++) {
+    if (i === array.length - 1) {
+      multiplyNextArray.push(array[i]);
+    } else {
+      multiplyNextArray.push(array[i] * array[i + 1]);
+    }
   }
-  multiplyNextArray.push(array[array.length - 1] * 1);
-
   return multiplyNextArray;
 }
-multipliedByNextNumber([3, 5, 3, 3, 8, 32, 21, 24, 8]);
 
 /**
  * Exercise 3
@@ -103,30 +104,28 @@ multipliedByNextNumber([3, 5, 3, 3, 8, 32, 21, 24, 8]);
  * result: [24, 3, 48, 16, 5, 7]
  */
 
-function multipliedEvenNumbers(array) {
-  nextEven = 1;
-  modifiedEven = [];
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] % 2 === 1) {
-      modifiedEven.push(array[i]);
+function multipliedEvenNumbers(numbers) {
+  let evenNumbers = numbers.filter((number) => number % 2 !== 1);
+  console.log("evenNumbers", evenNumbers);
+  const modifiedEvenNumbers = evenNumbers.map((evenNumber, index) => {
+    if (index === evenNumbers.length - 1) {
+      return evenNumber * 2;
+    } else {
+      return evenNumber * evenNumbers[index + 1];
     }
-    if (array[i] % 2 === 0) {
-      while (array[i + 1] % 2 === 0) {
-        nextEven = array[i + 1];
-        modifiedEven.push(array[i] * nextEven);
-        nextEven = 1;
-        i++;
-      }
-      if (nextEven === 1) {
-        modifiedEven.push(array[i] * 2);
-      }
-    }
-  }
-  console.log(modifiedEven);
-  return modifiedEven;
-}
+  });
+  console.log("modifiedEvenNumbers", modifiedEvenNumbers);
 
-multipliedEvenNumbers([2, 5, 6, 2, 13, 7, 5, 7]);
+  const result = numbers.map((number) => {
+    if (number % 2) {
+      return number;
+    } else {
+      return modifiedEvenNumbers.shift();
+    }
+  });
+  console.log("result", result);
+  return result;
+}
 
 /**
  * Exercise 4
@@ -141,27 +140,23 @@ multipliedEvenNumbers([2, 5, 6, 2, 13, 7, 5, 7]);
  * result: [4, 15, 6, 8, 35, 7]
  */
 
-function multipliedOddNumbers(array) {
-  nextOdd = 1;
-  modifiedOdd = [];
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] % 2 === 0) {
-      modifiedOdd.push(array[i]);
+function multipliedOddNumbers(numbers) {
+  let oddNumbers = numbers.filter((number) => number % 2 === 1);
+  let modifiedOddNumber = oddNumbers.map((number, index) => {
+    if (index === oddNumbers.length - 1) {
+      return oddNumbers[index];
+    } else {
+      return oddNumbers[index] * oddNumbers[index + 1];
     }
-    if (array[i] % 2 === 1) {
-      while (array[i + 1] % 2 === 1) {
-        nextOdd = array[i + 1];
-        modifiedOdd.push(array[i] * nextOdd);
-        nextOdd = 1;
-        i++;
-      }
-      if (nextOdd === 1) {
-        modifiedEven.push(array[i] * 1);
-      }
+  });
+  let finalNumbers = numbers.map((number) => {
+    if (number % 2 === 1) {
+      return modifiedOddNumber.shift();
+    } else {
+      return number;
     }
-  }
-  console.log(modifiedOdd);
-  return modifiedOdd;
+  });
+  return finalNumbers;
 }
 
 /**
@@ -174,3 +169,13 @@ function multipliedOddNumbers(array) {
  * if you pass "odd" do the same what you have for exercise 4
  * else return original array.
  */
+
+function multipliedEvenOddNumbers(numbers, type) {
+  let modifiedArray = [];
+  if (type === "even") {
+    return multipliedEvenNumbers(numbers);
+  }
+  if (type === "odd") {
+    return multipliedOddNumbers(numbers);
+  }
+}
