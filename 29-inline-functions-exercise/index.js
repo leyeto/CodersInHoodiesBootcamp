@@ -11,12 +11,35 @@
  * return a string "Please, pass correct type".
  */
 
+reverseArray = function (arrayToReverse = []) {
+  if (Array.isArray(arrayToReverse)) {
+    let reversedArray = [];
+    reversedArray = arrayToReverse.reverse();
+    return reversedArray;
+  } else {
+    return "Please, pass correct type";
+  }
+};
+
 /**
  * Exercise 2
  *
  * create an inline function {nextOddNum} that takes number as a param
  * and return next odd number.
  */
+
+function nextOddNum(number) {
+  let nextOdd = 0;
+  for (let i = number; i < number + 3; i++) {
+    if (i % 2 === 1) {
+      nextOdd = i;
+      continue;
+    }
+  }
+  return nextOdd;
+}
+
+console.log(nextOddNum(3));
 
 /**
  * Exercise 3
@@ -27,11 +50,23 @@
  * less than 100. Otherwise return false.
  */
 
+function isLessThan100(a, b) {
+  if (a + b < 100) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 /**
  * Exercise 4
  * create an inline function {incrementBy5} which takes
  * a number as a param, add 5 and return the result.
  */
+
+function incrementBy5(numberToIncrease) {
+  return numberToIncrease + 5;
+}
 
 /**
  * Exercise 5
@@ -40,3 +75,11 @@
  * Then apply incrementor function to each element in your array and
  * return the result
  */
+function incrementor(array,increase){
+  let newArray=array.map(number=>number +increase);
+  return newArray;
+}
+
+function incrementAllBy5(array,incrementor(array,5)){
+  return incrementor(array,5);
+}
