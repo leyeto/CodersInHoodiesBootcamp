@@ -1,7 +1,7 @@
-// 
+//
 /**
  * !!! IMPORTANT !!!
- * 
+ *
  * USE "for" loop to recreate all JS pre-built functions
  */
 
@@ -15,6 +15,12 @@
  * passed each element and the index.
  *
  */
+
+function forEach(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    callback(array[i]);
+  }
+}
 
 /**
  * Exercise #2

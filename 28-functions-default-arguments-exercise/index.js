@@ -48,7 +48,7 @@ function logElements(array = ["Nothing to log"]) {
  * and value "John Smith"
  */
 
-function getUserName(objectWithName = [(objectWithName.name = "John Smith")]) {
+function getUserName(objectWithName = { name: "John Smith" }) {
   return objectWithName.name;
 }
 
