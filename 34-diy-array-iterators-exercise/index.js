@@ -18,7 +18,7 @@
 
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
-    callback(array[i]);
+    callback(array[i], i);
   }
 }
 
@@ -36,6 +36,14 @@ function forEach(array, callback) {
  *
  */
 
+function map(array, callback) {
+  let mappedArray = [];
+  for (let i = 0; i < array.length; i++) {
+    mappedArray.push(callback(array[i], i));
+  }
+  return mappedArray;
+}
+
 /**
  * Exercise #3
  *
@@ -49,6 +57,16 @@ function forEach(array, callback) {
  * callback returned a truthy value.
  *
  */
+
+function filter(array, callback) {
+  let filteredArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i], i) === true) {
+      filteredArray.push(array[i]);
+    }
+  }
+  return filteredArray;
+}
 
 /**
  * Exercise #4
@@ -64,6 +82,14 @@ function forEach(array, callback) {
  *
  */
 
+function find(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i], i) === true) {
+      return array[i];
+    }
+  }
+}
+
 /**
  * Exercise #5
  *
@@ -77,6 +103,14 @@ function forEach(array, callback) {
  * callback returns a truthy value.
  *
  */
+
+function findIndex(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i], i) === true) {
+      return i;
+    }
+  }
+}
 
 /**
  * Exercise #6
@@ -93,6 +127,16 @@ function forEach(array, callback) {
  *
  */
 
+function every(array, callback) {
+  let count = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i], i) === false) {
+      return false;
+    }
+  }
+  return true;
+}
+
 /**
  * Exercise #7
  *
@@ -107,6 +151,15 @@ function forEach(array, callback) {
  * a truthy value.
  *
  */
+
+function some(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i], i) === true) {
+      return true;
+    }
+  }
+  return false;
+}
 
 /**
  * Exercise #8
@@ -129,3 +182,11 @@ function forEach(array, callback) {
  * value.
  *
  */
+
+function reduce(array, callback, initialValue = 0) {
+  let reduceOutput = initialValue;
+  for (let i = 0; i < array.length; i++) {
+    reduceOutput += callback(array[i], i);
+  }
+  return reduceOutput;
+}
