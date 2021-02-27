@@ -5,6 +5,8 @@
  *
  * ask user for a name and assign a response to variable {name}
  */
+const readline = require("readline-sync");
+const name = readline.question("Please enter your name: ");
 
 //===== DO NOT TOUCH THIS BLOCK =====
 console.log(`Hi ${name}!`);
@@ -23,6 +25,31 @@ console.log("=====================");
  * NOTE: if the user will respond with wrong value, ask again, until
  * you get correct symbol
  */
+
+let selectedSymbol = readline.question(
+  "Enter maths symbol -,+,/ 0r * \n",
+  (EnteredSymbol) => {
+    if (EnteredSymbol.trim() === "+" || "-" || "/" || "*") {
+      console.log("Valid symbol");
+      readline.close();
+    } else {
+      readline.prompt(`${EnteredSymbol} is incorrect, please try again`);
+      readline.prompt();
+      readline.on("line", (EnteredSymbol) => {
+        if (EnteredSymbol.trim() === "+" || "-" || "/" || "*") {
+          console.log("symbol is valid");
+          readline.close();
+        } else {
+          readline.prompt(`${EnteredSymbol}, is still invalid, Again \n`);
+          readline.prompt();
+        }
+      });
+    }
+    readline.on("close", () => {
+      console.log("Correct");
+    });
+  }
+);
 
 /**
  * Exercise 3

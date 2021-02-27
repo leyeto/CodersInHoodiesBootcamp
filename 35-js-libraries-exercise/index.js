@@ -20,6 +20,12 @@
  * to see the result
  */
 
+function renderBlueText(textToBlue) {
+  console.log(require("chalk").blue(textToBlue));
+}
+
+renderBlueText("Leye your are awesome");
+
 /**
  * Exercise 3
  *
@@ -29,6 +35,11 @@
  * to see the result
  */
 
+function inversedColourText(inverseText) {
+  console.log(require("chalk").inverse(inverseText));
+}
+inversedColourText("Leye your are awesome");
+
 /**
  * Exercise 4
  *
@@ -36,3 +47,8 @@
  * and style each by adding red background colour and setting
  * font colour to white.
  */
+
+function styledText(textToStyle) {
+  console.log(require("chalk").bgRed.white(textToStyle));
+}
+styledText("Leye your are awesome");
