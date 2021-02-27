@@ -60,6 +60,26 @@ let selectedSymbol = readline.question(
  * you get a number
  */
 
+const firstNumber = readline.question("Enter first number \n");
+readline.question("Try to guess the first number entered? \n", (number1) => {
+  if (number1 === firstNumber) {
+    console.log("Number Entered is correct");
+    readline.close();
+  } else {
+    readline.prompt(`${number1} was incorrect can you try again`);
+    readline.prompt();
+    readline.on("line", (number1) => {
+      if (number1 === firstNumber) {
+        console.log("Nice you got it");
+        readline.close();
+      } else {
+        readline.prompt(`${number1}, was wrong again, another try`);
+        readline.prompt();
+      }
+    });
+  }
+});
+
 /**
  * Exercise 4
  *
@@ -68,6 +88,26 @@ let selectedSymbol = readline.question(
  * NOTE: if the user will respond with wrong value, ask again, until
  * you get a number
  */
+
+const secondNumber = readline.question("Enter second number \n");
+readline.question("Try to guess the second number entered? \n", (number2) => {
+  if (number2 === secondNumber) {
+    console.log("Number Entered is correct");
+    readline.close();
+  } else {
+    readline.prompt(`${number2} was incorrect can you try again`);
+    readline.prompt();
+    readline.on("line", (number2) => {
+      if (number2 === secondNumber) {
+        console.log("Nice you got it");
+        readline.close();
+      } else {
+        readline.prompt(`${number2}, was wrong again, another try`);
+        readline.prompt();
+      }
+    });
+  }
+});
 
 /**
  * Exercise 5
