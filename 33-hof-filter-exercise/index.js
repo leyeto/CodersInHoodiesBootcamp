@@ -82,7 +82,8 @@ function truthyOnly(mixedArray) {
     (element) =>
       typeof element === "object" ||
       typeof element === "number" ||
-      typeof element === "string"
+      typeof element === "string" ||
+      element == true
   );
   return truthArray;
 }

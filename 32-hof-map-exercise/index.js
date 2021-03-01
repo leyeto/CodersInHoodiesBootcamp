@@ -64,7 +64,7 @@ function greetAll(arrayOfNames) {
 
 function multiplyAllNumbers(arrayToBeMultiplied) {
   let multipliedArray = arrayToBeMultiplied.map((number) => {
-    if (number % 1 === 0) {
+    if (typeof number === "string") {
       number * 5;
     }
   });

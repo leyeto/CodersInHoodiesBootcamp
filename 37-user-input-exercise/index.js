@@ -26,30 +26,45 @@ console.log("=====================");
  * you get correct symbol
  */
 
-let selectedSymbol = readline.question(
-  "Enter maths symbol -,+,/ 0r * \n",
-  (EnteredSymbol) => {
-    if (EnteredSymbol.trim() === "+" || "-" || "/" || "*") {
-      console.log("Valid symbol");
-      readline.close();
-    } else {
-      readline.prompt(`${EnteredSymbol} is incorrect, please try again`);
-      readline.prompt();
-      readline.on("line", (EnteredSymbol) => {
-        if (EnteredSymbol.trim() === "+" || "-" || "/" || "*") {
-          console.log("symbol is valid");
-          readline.close();
-        } else {
-          readline.prompt(`${EnteredSymbol}, is still invalid, Again \n`);
-          readline.prompt();
-        }
-      });
-    }
-    readline.on("close", () => {
-      console.log("Correct");
-    });
-  }
+// let selectedSymbol = readline.question(
+//   "Enter maths symbol -,+,/ 0r * \n",
+//   (EnteredSymbol) => {
+//     if (EnteredSymbol.trim() === "+" || "-" || "/" || "*") {
+//       console.log("Valid symbol");
+//       readline.close();
+//     } else {
+//       readline.prompt(`${EnteredSymbol} is incorrect, please try again`);
+//       readline.prompt();
+//       readline.on("line", (EnteredSymbol) => {
+//         if (EnteredSymbol.trim() === "+" || "-" || "/" || "*") {
+//           console.log("symbol is valid");
+//           readline.close();
+//         } else {
+//           readline.prompt(`${EnteredSymbol}, is still invalid, Again \n`);
+//           readline.prompt();
+//         }
+//       });
+//     }
+//     readline.on("close", () => {
+//       console.log("Correct");
+//     });
+//   }
+// );
+
+const mathSymbols = ["+", "-", "*", "/"];
+let symbol = readline.keyInSelect(
+  mathSymbols,
+  "Please enter number of symbol you'll execute"
 );
+if (symbol === 1) {
+  selectedSymbol = "add";
+} else if (symbol === 2) {
+  selectedSymbol = "subtract";
+} else if (symbol === 3) {
+  selectedSymbol = "multiply";
+} else if (symbol === 4) {
+  selectedSymbol = "divide";
+}
 
 /**
  * Exercise 3
@@ -117,6 +132,16 @@ readline.question("Try to guess the second number entered? \n", (number2) => {
  *
  * show the result to the user
  */
+
+if (selectedSymbol === "add") {
+  result = number1 + number2;
+} else if (selectedSymbol === "subtract") {
+  result = number1 - number2;
+} else if (selectedSymbol === "multiply") {
+  result = number1 * number2;
+} else if (selectedSymbol === "divide") {
+  result = number1 / number2;
+}
 
 console.log("=====================");
 console.log(`Here you go, the result is ${result}`);

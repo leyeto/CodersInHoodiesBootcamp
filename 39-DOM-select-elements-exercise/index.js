@@ -5,11 +5,14 @@
  * to variable {paragraphs}
  */
 
+const paragraphs = document.getElementsByTagName("p");
+
 /**
  * Exercise 2
  * select the first p tag with getElementsByTagName and assign it
  * to variable {firstParagraph}
  */
+const firstParagraph = paragraphs[0];
 
 /**
  * Exercise 3
@@ -20,12 +23,17 @@
  * ATTENTION: check the type of {paragraphs} before doing forEach
  */
 
+function logAllParagraphs() {
+  [...document.getElementsByTagName("p")].forEach((p) => console.log(p));
+}
+
 /**
  * Exercise 4
  *
  * select all elements with class "text" with getElementsByClassName
  * and assign it to variable {textElements}
  */
+const textElements = document.getElementsByClassName("text");
 
 /**
  * Exercise 5
@@ -34,12 +42,26 @@
  * with getElementsByClassName and assign it to variable {greenText}
  */
 
+// const greenText = Object.assign(
+//   document.getElementsByClassName("green"),
+//   document.getElementsByClassName("text")
+// );
+
+const greenText =
+  document.getElementsByClassName("green") +
+  document.getElementsByClassName("text");
+
+// const greenText = document
+//   .getElementsByClassName("green")
+//   .concat(document.getElementsByClassName("text"));
+
 /**
  * Exercise 6
  *
  * select element where id is 'textId-3'(use getElementById) and assign it
  * to variable {thirdText}
  */
+const thirdText = document.getElementById("textId-3");
 
 /* ==================================================== */
 /*                  querySelector section               */
@@ -51,6 +73,7 @@
  *
  * select the fourth "li" element and save it to {fourthListElement} variable
  */
+const fourthListElement = document.querySelector("li:nth-of-type(4)");
 
 /**
  * Exercise 8
@@ -58,11 +81,14 @@
  * select all "li" elements and save it to {listElements} variable
  */
 
+const listElements = document.querySelectorAll("li");
+
 /**
  * Exercise 9
  *
  * select all "a" elements that are inside "ul" and assign it {listLinks}
  */
+const listLinks = document.querySelectorAll("ul.a");
 
 /**
  * Exercise 10

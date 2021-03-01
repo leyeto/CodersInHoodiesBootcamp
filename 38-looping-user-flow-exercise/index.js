@@ -1,39 +1,39 @@
 // install and  import "readline-sync" npm package before you do exercises
-
+var readlineSync = require("readline-sync");
 let selectedItems = {
-	book: "",
-	movie: "",
-	nextTrip: ""
+  book: "",
+  movie: "",
+  nextTrip: "",
 };
 
 const movies = [
-	"The Invisible Man",
-	"Never Rarely Sometimes Always",
-	"Gretel & Hansel",
-	"No time to die",
-	"Bloodshot",
-	"Onward",
-	"Sonic"
+  "The Invisible Man",
+  "Never Rarely Sometimes Always",
+  "Gretel & Hansel",
+  "No time to die",
+  "Bloodshot",
+  "Onward",
+  "Sonic",
 ];
 
 const books = [
-	"My Dark Vanessa",
-	"Uncanny Valley",
-	"Weather",
-	"The night watchman",
-	"All adults here",
-	"Dear Edward",
-	"Grown ups"
+  "My Dark Vanessa",
+  "Uncanny Valley",
+  "Weather",
+  "The night watchman",
+  "All adults here",
+  "Dear Edward",
+  "Grown ups",
 ];
 
 const countries = [
-	"Italy",
-	"France",
-	"Germany",
-	"Spain",
-	"Portugal",
-	"Denmark",
-	"Netherland"
+  "Italy",
+  "France",
+  "Germany",
+  "Spain",
+  "Portugal",
+  "Denmark",
+  "Netherland",
 ];
 
 /**
@@ -46,6 +46,12 @@ const countries = [
  * NOTE: You need to add option to go back, to main menu
  */
 
+let selectedBook = readlineSync.keyInSelect(books, "Select a book key 1-7 \n");
+console.log("You entered " + books[selectedBook]);
+selectedItems.book = books[selectedBook];
+user.book = selectedItems.book;
+console.log(`${selectedItems.book} has been added to selected items as book`);
+
 /**
  * Exercise 2
  *
@@ -55,6 +61,14 @@ const countries = [
  *
  * NOTE: You need to add option to "go back", to main menu
  */
+
+let selectMovie = readlineSync.keyInSelect(
+  movies,
+  "Select a movie from the list"
+);
+console.log(`${movies[selectMovie]} was selected`);
+user.movie = movies[selectMovie];
+user.movie = selectedItems.movie;
 
 /**
  * Exercise 3
@@ -66,6 +80,14 @@ const countries = [
  * NOTE: You need to add option to go back, to main menu
  */
 
+let selectCountry = readlineSync.keyInSelect(
+  countries,
+  "Select a movie from the list"
+);
+console.log(`${countries[selectCountry]} was selected`);
+user.nextTrip = movies[selectMovie];
+user.nextTrip = selectedItems.nextTrip;
+
 /**
  * Exercise 4
  *
@@ -73,3 +95,4 @@ const countries = [
  * so user can pick one. User also should have the option "Exit".
  * When the user pick "Exit", log selected items.
  */
+readlineSync.close();
