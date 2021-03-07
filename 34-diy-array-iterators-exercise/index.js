@@ -129,7 +129,7 @@ function findIndex(array, callback) {
 
 function every(array, callback) {
   for (let i = 0; i < array.length; i++) {
-    if (callback(array[i], i) === false) {
+    if (!callback(array[i], i)) {
       return false;
     }
   }
@@ -185,9 +185,7 @@ function some(array, callback) {
 function reduce(array, callback, initialValue = 0) {
   let reduceOutput = initialValue;
   for (let i = 0; i < array.length; i++) {
-    if (typeof array[i] === "number") {
-      reduceOutput += callback(initialValue, array[i], i);
-    }
+    reduceOutput = callback(reduceOutput, array[i], i);
   }
   return reduceOutput;
 }

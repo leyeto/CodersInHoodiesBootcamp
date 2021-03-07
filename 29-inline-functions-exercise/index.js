@@ -75,11 +75,24 @@ function incrementBy5(numberToIncrease) {
  * Then apply incrementor function to each element in your array and
  * return the result
  */
-function incrementor(array,increase){
-  let newArray=array.map(number=>number +increase);
+function incrementor(array, increase) {
+  let newArray = array.map((number) => number + increase);
   return newArray;
 }
 
-function incrementAllBy5(array,incrementor(array,5)){
-  return incrementor(array,5);
+function incrementAllBy5(numbers, incrementor) {
+  // let incrementedNumbers = [];
+
+  // numbers.forEach(number => {
+  //   const incrementedNumber = incrementor(number);
+  //   incrementedNumbers.push(incrementedNumber)
+  // })
+
+  // return incrementedNumbers;
+
+  return numbers.map((number) => incrementor(number));
+
+  // return numbers.map((number) =>{
+  //   return incrementor(number);
+  // })
 }

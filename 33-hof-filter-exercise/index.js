@@ -5,12 +5,12 @@
  * as a parameter and return an array but without strings
  */
 
-function noStrings(mixedArray) {
+const noStrings = (mixedArray) => {
   const noStringArray = mixedArray.filter(
     (element) => typeof element !== "string"
   );
   return noStringArray;
-}
+};
 
 /**
  * Exercise 2
@@ -20,12 +20,12 @@ function noStrings(mixedArray) {
  * every other type
  */
 
-function justStrings(mixedArray) {
+const justStrings = (mixedArray) => {
   const StringArray = mixedArray.filter(
     (element) => typeof element === "string"
   );
   return StringArray;
-}
+};
 
 /**
  * Exercise 3
@@ -35,12 +35,12 @@ function justStrings(mixedArray) {
  * that are longer than 5 characters
  */
 
-function justStringsLongerThan5(mixedArray) {
+const justStringsLongerThan5 = (mixedArray) => {
   const StringArray5plus = mixedArray.filter(
     (element) => typeof element === "string" && element.length > 5
   );
   return StringArray5plus;
-}
+};
 
 /**
  * Exercise 4
@@ -50,12 +50,12 @@ function justStringsLongerThan5(mixedArray) {
  * that are more than 13
  */
 
-function numbersMoreThan13(mixedArray) {
+const numbersMoreThan13 = (mixedArray) => {
   const greaterThan13 = mixedArray.filter(
     (element) => typeof element === "number" && element > 13
   );
   return greaterThan13;
-}
+};
 
 /**
  * Exercise 5
@@ -64,10 +64,10 @@ function numbersMoreThan13(mixedArray) {
  * an array as a parameter and return an array of objects
  */
 
-function objectsOnly(mixedArray) {
+const objectsOnly = (mixedArray) => {
   const objects = mixedArray.filter((element) => typeof element === "object");
   return objects;
-}
+};
 
 /**
  * Exercise 6
@@ -77,13 +77,9 @@ function objectsOnly(mixedArray) {
  * IMPORTANT: You still need to keep number 0.
  */
 
-function truthyOnly(mixedArray) {
+const truthyOnly = (mixedArray) => {
   const truthArray = mixedArray.filter(
-    (element) =>
-      typeof element === "object" ||
-      typeof element === "number" ||
-      typeof element === "string" ||
-      element == true
+    (element) => Boolean(element) || element === 0
   );
   return truthArray;
-}
+};

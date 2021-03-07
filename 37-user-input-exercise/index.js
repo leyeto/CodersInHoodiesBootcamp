@@ -27,42 +27,30 @@ console.log("=====================");
  */
 
 // let selectedSymbol = readline.question(
-//   "Enter maths symbol -,+,/ 0r * \n",
-//   (EnteredSymbol) => {
-//     if (EnteredSymbol.trim() === "+" || "-" || "/" || "*") {
-//       console.log("Valid symbol");
-//       readline.close();
-//     } else {
-//       readline.prompt(`${EnteredSymbol} is incorrect, please try again`);
-//       readline.prompt();
-//       readline.on("line", (EnteredSymbol) => {
-//         if (EnteredSymbol.trim() === "+" || "-" || "/" || "*") {
-//           console.log("symbol is valid");
-//           readline.close();
-//         } else {
-//           readline.prompt(`${EnteredSymbol}, is still invalid, Again \n`);
-//           readline.prompt();
-//         }
-//       });
-//     }
-//     readline.on("close", () => {
-//       console.log("Correct");
-//     });
-//   }
-// );
 
 const mathSymbols = ["+", "-", "*", "/"];
-let symbol = readline.keyInSelect(
-  mathSymbols,
-  "Please enter number of symbol you'll execute"
-);
-if (symbol === 1) {
+// const symbol = readline.questionInt(
+//   mathSymbols,
+//   "Please enter number of symbol you'll execute"
+// );
+let symbol, selectedSymbol, number1, number2;
+
+const askSymbol = () => {
+  symbol = readline.question("Select a symbol from +,-,*,/");
+  symbol = symbol.trim();
+  if (symbol !== "+" || "-" || "*" || "*") {
+    return askSymbol();
+  }
+  return symbol;
+};
+
+if (symbol === "+") {
   selectedSymbol = "add";
-} else if (symbol === 2) {
+} else if (symbol === "-") {
   selectedSymbol = "subtract";
-} else if (symbol === 3) {
+} else if (symbol === "*") {
   selectedSymbol = "multiply";
-} else if (symbol === 4) {
+} else if (symbol === "*") {
   selectedSymbol = "divide";
 }
 
@@ -75,25 +63,18 @@ if (symbol === 1) {
  * you get a number
  */
 
-const firstNumber = readline.question("Enter first number \n");
-readline.question("Try to guess the first number entered? \n", (number1) => {
-  if (number1 === firstNumber) {
-    console.log("Number Entered is correct");
-    readline.close();
-  } else {
-    readline.prompt(`${number1} was incorrect can you try again`);
-    readline.prompt();
-    readline.on("line", (number1) => {
-      if (number1 === firstNumber) {
-        console.log("Nice you got it");
-        readline.close();
-      } else {
-        readline.prompt(`${number1}, was wrong again, another try`);
-        readline.prompt();
-      }
-    });
+const askFirstNumber = () => {
+  number = readline.question("Enter first number \n"); // "5"
+  const parsedNumber = parseInt(number);
+
+  if (!Number.isInteger(parsedNumber)) {
+    return askFirstNumber();
   }
-});
+
+  return parsedNumber;
+};
+
+number1 = askFirstNumber();
 
 /**
  * Exercise 4
@@ -104,25 +85,16 @@ readline.question("Try to guess the first number entered? \n", (number1) => {
  * you get a number
  */
 
-const secondNumber = readline.question("Enter second number \n");
-readline.question("Try to guess the second number entered? \n", (number2) => {
-  if (number2 === secondNumber) {
-    console.log("Number Entered is correct");
-    readline.close();
-  } else {
-    readline.prompt(`${number2} was incorrect can you try again`);
-    readline.prompt();
-    readline.on("line", (number2) => {
-      if (number2 === secondNumber) {
-        console.log("Nice you got it");
-        readline.close();
-      } else {
-        readline.prompt(`${number2}, was wrong again, another try`);
-        readline.prompt();
-      }
-    });
+const askSecondNumber = () => {
+  number2 = readline.question("Enter second number\n");
+  const parsedNumber2 = parseInt(number2);
+
+  if (Number.isInteger(parsedNumber2)) {
+    return parsedNumber2;
   }
-});
+  return askSecondNumber();
+};
+number2 = askSecondNumber();
 
 /**
  * Exercise 5
@@ -132,7 +104,7 @@ readline.question("Try to guess the second number entered? \n", (number2) => {
  *
  * show the result to the user
  */
-
+let result;
 if (selectedSymbol === "add") {
   result = number1 + number2;
 } else if (selectedSymbol === "subtract") {
@@ -142,6 +114,6 @@ if (selectedSymbol === "add") {
 } else if (selectedSymbol === "divide") {
   result = number1 / number2;
 }
-
+console.log(result, number1, number2, selectedSymbol, symbol);
 console.log("=====================");
 console.log(`Here you go, the result is ${result}`);

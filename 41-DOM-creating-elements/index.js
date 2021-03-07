@@ -10,6 +10,11 @@
  * NOTE: we will use this function for other exercises.
  */
 
+const createDOMElement = (tagName) => {
+  const NewElement = document.createElement(tagName);
+  document.appendChild(NewElement);
+};
+
 /**
  * Exercise 2
  *
@@ -17,6 +22,12 @@
  * create a "p" tag which displays the text and appends it to
  * the body of the document
  */
+
+const addTag = (textToP) => {
+  const NewP = document.createElement("p");
+  NewP.innerText = textToP;
+  document.appendChild(NewP);
+};
 
 /**
  * Exercise 3
@@ -26,6 +37,13 @@
  * which displays the text and has the class and appends
  * the element to the body
  */
+
+const addElementWithClass = (tagName, text, classNam) => {
+  const newElemen = document.createElement(tagName);
+  newElemen.innerText = text;
+  newElemen.className = classNam;
+  document.appendChild(newElemen);
+};
 
 /**
  * Exercise 4

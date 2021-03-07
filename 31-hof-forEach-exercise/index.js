@@ -26,12 +26,12 @@
  * use {forEachCallback} as a callback function for forEach
  */
 
-forEachCallback = (toLog) => {
-  console.log(toLog);
+const forEachCallback = (value) => {
+  console.log(value);
 };
-function logAllWithExternalCallback(array, callback) {
-  return array.forEach((element) => callback(element));
-}
+const logAllWithExternalCallback = (array) => {
+  return array.forEach(forEachCallback);
+};
 
 /* =========================== */
 /* anonymous callbacks version */
@@ -45,10 +45,8 @@ function logAllWithExternalCallback(array, callback) {
  * anonymous callback
  */
 
-let logAllWithAnonymousCallback = function (array, callback) {
-  for (let i = 0; i < array.length; i++) {
-    callback(array[i]);
-  }
+const logAllWithAnonymousCallback = (array) => {
+  return array.forEach((element) => console.log(element));
 };
 
 /**

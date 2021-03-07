@@ -35,11 +35,8 @@ const convertToPositive = (array) => {
  * ]) will return ['Alex', 'John']
  */
 
-const getAllNames = (objectWithNames) => {
-  let namesOnly = objectWithNames.map((parameter) =>
-    namesOnly.push(Object.values((objectWithNames = { name })))
-  );
-  return namesOnly;
+const getAllNames = (users) => {
+  return users.map((user) => user.name);
 };
 
 /**
@@ -63,10 +60,11 @@ function greetAll(arrayOfNames) {
  */
 
 function multiplyAllNumbers(arrayToBeMultiplied) {
-  let multipliedArray = arrayToBeMultiplied.map((number) => {
-    if (typeof number === "string") {
-      number * 5;
+  let multipliedArray = arrayToBeMultiplied.map((value) => {
+    if (typeof value === "number") {
+      return value * 5;
     }
+    return value;
   });
   return multipliedArray;
 }

@@ -42,14 +42,7 @@ const textElements = document.getElementsByClassName("text");
  * with getElementsByClassName and assign it to variable {greenText}
  */
 
-// const greenText = Object.assign(
-//   document.getElementsByClassName("green"),
-//   document.getElementsByClassName("text")
-// );
-
-const greenText =
-  document.getElementsByClassName("green") +
-  document.getElementsByClassName("text");
+const greenText = document.getElementsByClassName("green text");
 
 // const greenText = document
 //   .getElementsByClassName("green")
@@ -88,7 +81,7 @@ const listElements = document.querySelectorAll("li");
  *
  * select all "a" elements that are inside "ul" and assign it {listLinks}
  */
-const listLinks = document.querySelectorAll("ul.a");
+const listLinks = document.querySelector("ul.a");
 
 /**
  * Exercise 10
@@ -97,12 +90,19 @@ const listLinks = document.querySelectorAll("ul.a");
  * is "codersinhoods" and assign it {communityElements}
  */
 
+const communityElements = document.querySelectorAll(
+  // "[data-community-name='codersinhoods']"
+  "[data-community-name=codersinhoods]"
+);
+
 /**
  * Exercise 11
  *
  * select all elements with class "test" and assign it to a variable
  * {elementsForTesting}
  */
+
+const elementsForTesting = document.querySelectorAll(".test");
 
 /**
  * Exercise 12
@@ -111,9 +111,13 @@ const listLinks = document.querySelectorAll("ul.a");
  * {fifthTest}
  */
 
+const fifthTest = document.querySelector("#test-5");
+
 /**
  * Exercise 13
  *
  * select all the elements which are siblings of an element
  * with the class "links" and assign it to a variable {nextElements}
  */
+
+const nextElements = document.querySelectorAll(".links+*");

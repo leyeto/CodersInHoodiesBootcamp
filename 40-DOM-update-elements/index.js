@@ -9,17 +9,33 @@
  * and displays it in the h1
  */
 
+const setTitle = (stringInH1) => {
+  const h1Title = document.createElement("h1");
+  h1Title.innerText = stringInH1;
+  return document.body.appendChild(h1Title);
+};
+
 /**
  * Exercise 2
  * create a function {appendToTitle} which takes a string as an argument
  * and appends it to existing h1 text
  */
 
+const appendToTitle = (joinTitle) => {
+  let existingH1 = document.querySelector("h1");
+  existingH1.innerText += joinTitle;
+};
+
 /**
  * Exercise 3
  * create a function {prependToTitle} which takes a string as an argument
  * and prepends it to existing h1 element text
  */
+
+const prependToTitle = (textToPrepend) => {
+  const existingH1 = document.querySelector("h1");
+  return existingH1.prepend(textToPrepend);
+};
 
 /**
  * Exercise 4
@@ -29,11 +45,22 @@
  * passed into the function
  */
 
+const setInnerHTMLForDiv = (tag, text) => {
+  const newTag = document.createElement(tag);
+  newTag.innerHTML = text;
+  document.body.appendChild(newTag);
+};
+
 /**
  * Exercise 5
  * create a function {addPtoDivWithText} which takes a string as an argument
  * and uses innerHTML to add a p tag containing the text into the div
  */
+const addPtoDivWithText = (stringWithP) => {
+  const pTag = document.createElement("p");
+  pTag.innerHTML = "<p>" + stringWithP + "</p>";
+  document.body.appendChild(pTag);
+};
 
 /**
  * Exercise 6
@@ -42,6 +69,12 @@
  * as arguments and set it as a src and alt attributes values
  * for existing img
  */
+const setSrcToImage = (imagelink, imageDes) => {
+  const newImage = document.createElement("img");
+  newImage.src = imagelink;
+  newImage.alt = imageDes;
+  return document.body.appendChild(newImage);
+};
 
 /**
  * Exercise 7
@@ -54,6 +87,15 @@
  * Also add an attribute that opens your page in a new tab
  */
 
+const setCodersInHoodsLink = (url, text) => {
+  const webLink = document.createElement("a");
+  // webLink.innerHTML = `<a href=${url} target="blank">${text}</a>`;
+  webLink.target = "blank";
+  webLink.href = url;
+  webLink.text = text;
+  return document.body.appendChild(webLink);
+};
+
 /**
  * Exercise 8
  *
@@ -61,12 +103,21 @@
  * with class "reset"
  */
 
+const disableResetBtn = () =>
+  (document.querySelector(".reset").disabled = true);
+
 /**
  * Exercise 9
  *
  * create a function {disableBtns} which takes class name as an argument
  * and disable all buttons with this class name
  */
+
+const disableBtns = (classToDisable) => {
+  const disableList = (document.querySelectorAll(
+    "." + classToDisable
+  ).disable = true);
+};
 
 /**
  * Exercise 10
@@ -79,12 +130,26 @@
  * you will see a difference
  */
 
+const addClassToLi = () => {
+  const currentList = document.querySelector("ul");
+  const newItem = document.createElement("li");
+  const currentNumber = currentList.childElementCount;
+  newItem.className = currentList.lastElementChild.className;
+  newItem.innerText = "Item " + (currentNumber + 1);
+  currentList.appendChild(newItem);
+};
+
 /**
  * Exercise 11
  *
  *  create a function {removeListItemClass} which removes the class
  * "list_item" from all li elements with this class
  */
+
+const removeListItemClass = () => {
+  const itemsToRemove = document.querySelectorAll("ul .list_item");
+  itemsToRemove.forEach((item) => (item.className = null));
+};
 
 /**
  * Exercise 12
@@ -93,6 +158,11 @@
  * a CSS selector. Use to selector to find an element, then add
  * the id to the element
  */
+
+const addId = (id, selector) => {
+  const foundElement = document.querySelector(selector);
+  foundElement.id = id;
+};
 
 /**
  * Exercise 13
@@ -105,3 +175,7 @@
  * use the selector to find all the elements which match, then
  * set the CSS property to the value
  */
+const setStyles = (propertyName, propertyValue, cssSelector) => {
+  const itemStyled = document.querySelector(cssSelector);
+  itemStyled.style.propertyName = propertyValue;
+};

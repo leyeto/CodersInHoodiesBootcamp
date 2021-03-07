@@ -3,7 +3,7 @@
  *
  * Add Chalk(https://github.com/chalk/chalk) to your project
  */
-
+const chalk = require("chalk");
 /**
  * =============================================
  * READ CHALK DOCUMENTATION TO SEE HOW TO USE IT
@@ -21,7 +21,7 @@
  */
 
 function renderBlueText(textToBlue) {
-  console.log(require("chalk").blue(textToBlue));
+  console.log(chalk.blue(textToBlue));
 }
 
 renderBlueText("Leye your are awesome");
@@ -36,7 +36,7 @@ renderBlueText("Leye your are awesome");
  */
 
 function inversedColourText(inverseText) {
-  console.log(require("chalk").inverse(inverseText));
+  console.log(chalk.inverse(inverseText));
 }
 inversedColourText("Leye your are awesome");
 
@@ -49,6 +49,6 @@ inversedColourText("Leye your are awesome");
  */
 
 function styledText(textToStyle) {
-  console.log(require("chalk").bgRed.white(textToStyle));
+  console.log(chalk.bgRed.white(textToStyle));
 }
 styledText("Leye your are awesome");
