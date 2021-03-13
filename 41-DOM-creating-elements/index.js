@@ -11,8 +11,8 @@
  */
 
 const createDOMElement = (tagName) => {
-  const NewElement = document.createElement(tagName);
-  document.appendChild(NewElement);
+  const newElement = document.createElement(tagName);
+  return newElement;
 };
 
 /**
@@ -23,10 +23,10 @@ const createDOMElement = (tagName) => {
  * the body of the document
  */
 
-const addTag = (textToP) => {
-  const NewP = document.createElement("p");
-  NewP.innerText = textToP;
-  document.appendChild(NewP);
+const addPTag = (textToP) => {
+  const newP = document.createElement("p");
+  newP.innerText = textToP;
+  return document.body.appendChild(newP);
 };
 
 /**
@@ -42,7 +42,7 @@ const addElementWithClass = (tagName, text, classNam) => {
   const newElemen = document.createElement(tagName);
   newElemen.innerText = text;
   newElemen.className = classNam;
-  document.appendChild(newElemen);
+  document.body.appendChild(newElemen);
 };
 
 /**
@@ -52,6 +52,14 @@ const addElementWithClass = (tagName, text, classNam) => {
  * text and an array of classes. Create an element which displays the
  * text, has the array of classes and append it to the body
  */
+const addElementWithMultipleClasses = (tagName, text, arrayOfClasses) => {
+  const elementWithClasses = document.createElement(tagName);
+  elementWithClasses.innerText = text;
+  arrayOfClasses.forEach((element) => {
+    elementWithClasses.classList.add(element);
+  });
+  document.body.appendChild(elementWithClasses);
+};
 
 /**
  * Exercise 5
@@ -64,6 +72,18 @@ const addElementWithClass = (tagName, text, classNam) => {
  * Each li should have the text "Item $" (where $ is it's position)
  * Add the list element to the body
  */
+
+const buildAList = (listType, className, noOfItems) => {
+  const list = document.createElement(listType);
+  list.classList.add(className);
+  document.body.appendChild(list);
+  for (let i = 0; i < noOfItems; i++) {
+    let currentElement = document.createElement("li");
+    currentElement.innerText = `Item ${1 + i}`;
+    currentElement.classList.add(className);
+    list.appendChild(currentElement);
+  }
+};
 
 /**
  * Exercise 6
@@ -79,6 +99,13 @@ const addElementWithClass = (tagName, text, classNam) => {
  *
  */
 
+const prependLiToList = (prependText, prependclassName) => {
+  const newLi = document.createElement("li");
+  newLi.innerText = prependText;
+  newLi.classList.add(prependclassName);
+  document.querySelector("ul").prepend(newLi);
+};
+
 /**
  * Exercise 7
  * !!! to test this function in your browser, first run {buildAList} !!!
@@ -92,6 +119,17 @@ const addElementWithClass = (tagName, text, classNam) => {
  *
  */
 
+const pushToSelectedPosition = (postText, className, position) => {
+  const positionLi = document.createElement("li");
+  positionLi.innerText = postText;
+  positionLi.classList.add(className);
+  const targetPosition = document.querySelector(
+    `li:nth-child(${position + 1})`
+  );
+  const targParent = targetPosition.parentElement;
+  return targParent.insertBefore(positionLi, targetPosition);
+};
+
 /**
  * Exercise 8
  *
@@ -102,3 +140,12 @@ const addElementWithClass = (tagName, text, classNam) => {
  * element which match the element selector
  *
  */
+const deleteSelectedElements = (parent, child) => {
+  const kid = document.querySelector(child);
+  const carer = document.querySelector(parent);
+  if (kid.parentNode == carer) {
+    const targetParent = kid.parentNode;
+    console.log(targetParent);
+    targetParent.textContent = "";
+  }
+};

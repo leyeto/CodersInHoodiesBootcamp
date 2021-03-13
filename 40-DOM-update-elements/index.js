@@ -10,9 +10,8 @@
  */
 
 const setTitle = (stringInH1) => {
-  const h1Title = document.createElement("h1");
+  const h1Title = document.querySelector("h1");
   h1Title.innerText = stringInH1;
-  return document.body.appendChild(h1Title);
 };
 
 /**
@@ -34,7 +33,8 @@ const appendToTitle = (joinTitle) => {
 
 const prependToTitle = (textToPrepend) => {
   const existingH1 = document.querySelector("h1");
-  return existingH1.prepend(textToPrepend);
+  const currentText = existingH1.innerText;
+  existingH1.innerText = textToPrepend + currentText;
 };
 
 /**
@@ -46,9 +46,8 @@ const prependToTitle = (textToPrepend) => {
  */
 
 const setInnerHTMLForDiv = (tag, text) => {
-  const newTag = document.createElement(tag);
-  newTag.innerHTML = text;
-  document.body.appendChild(newTag);
+  const divFound = document.querySelector("div");
+  divFound.innerHTML += `<${tag}>${text}</${tag}>`;
 };
 
 /**
@@ -56,10 +55,9 @@ const setInnerHTMLForDiv = (tag, text) => {
  * create a function {addPtoDivWithText} which takes a string as an argument
  * and uses innerHTML to add a p tag containing the text into the div
  */
-const addPtoDivWithText = (stringWithP) => {
-  const pTag = document.createElement("p");
-  pTag.innerHTML = "<p>" + stringWithP + "</p>";
-  document.body.appendChild(pTag);
+const pushPtoDivWithText = (stringWithP) => {
+  const divFound = document.querySelector("div");
+  divFound.innerHTML += `<p>${stringWithP}</p>`;
 };
 
 /**
@@ -70,7 +68,7 @@ const addPtoDivWithText = (stringWithP) => {
  * for existing img
  */
 const setSrcToImage = (imagelink, imageDes) => {
-  const newImage = document.createElement("img");
+  const newImage = document.querySelector("img");
   newImage.src = imagelink;
   newImage.alt = imageDes;
   return document.body.appendChild(newImage);
@@ -88,11 +86,10 @@ const setSrcToImage = (imagelink, imageDes) => {
  */
 
 const setCodersInHoodsLink = (url, text) => {
-  const webLink = document.createElement("a");
-  // webLink.innerHTML = `<a href=${url} target="blank">${text}</a>`;
-  webLink.target = "blank";
+  const webLink = document.querySelector("a");
+  webLink.target = "_blank";
   webLink.href = url;
-  webLink.text = text;
+  webLink.innerText = text;
   return document.body.appendChild(webLink);
 };
 
@@ -103,8 +100,9 @@ const setCodersInHoodsLink = (url, text) => {
  * with class "reset"
  */
 
-const disableResetBtn = () =>
-  (document.querySelector(".reset").disabled = true);
+const disableResetBtn = () => {
+  document.querySelector(".reset").disabled = true;
+};
 
 /**
  * Exercise 9
@@ -114,9 +112,8 @@ const disableResetBtn = () =>
  */
 
 const disableBtns = (classToDisable) => {
-  const disableList = (document.querySelectorAll(
-    "." + classToDisable
-  ).disable = true);
+  const buttonsToDisable = document.querySelectorAll(`.${classToDisable}`);
+  buttonsToDisable.forEach((button) => (button.disabled = true));
 };
 
 /**
@@ -131,12 +128,11 @@ const disableBtns = (classToDisable) => {
  */
 
 const addClassToLi = () => {
-  const currentList = document.querySelector("ul");
-  const newItem = document.createElement("li");
-  const currentNumber = currentList.childElementCount;
-  newItem.className = currentList.lastElementChild.className;
-  newItem.innerText = "Item " + (currentNumber + 1);
-  currentList.appendChild(newItem);
+  const currentList = document.querySelectorAll(".list li");
+  console.log(currentList);
+  currentList.forEach((listItem, i) => {
+    listItem.classList.add(`list_item_${i}`);
+  });
 };
 
 /**
@@ -176,6 +172,6 @@ const addId = (id, selector) => {
  * set the CSS property to the value
  */
 const setStyles = (propertyName, propertyValue, cssSelector) => {
-  const itemStyled = document.querySelector(cssSelector);
-  itemStyled.style.propertyName = propertyValue;
+  const toStyle = document.querySelectorAll(cssSelector);
+  toStyle.forEach((element) => (element.style[propertyName] = propertyValue));
 };

@@ -8,6 +8,20 @@
  * 3. you should add only 5 list items.
  * 4. list item text should be "Item $"($ - position in the list)
  */
+const createAList = () => {
+  const list = document.createElement("ul");
+  list.classList.add("list");
+  document.body.appendChild(list);
+  for (let index = 1; index <= 5; index++) {
+    (function () {
+      setTimeout(function () {
+        let currentItem = document.createElement("li");
+        currentItem.innerText = "Item " + index;
+        list.appendChild(currentItem);
+      }, 1000 * index);
+    })(1000 * index);
+  }
+};
 
 /**
  * Exercise 2
@@ -21,6 +35,13 @@
  * 4. set font size to 2em
  */
 
+const styleElement = () => {
+  const elementTostyle = document.querySelector(".myList li:nth-child(3)");
+  elementTostyle.style.color = "white";
+  elementTostyle.style.backgroundColor = "green";
+  elementTostyle.style.fontSize = "2em";
+};
+
 /**
  * Exercise 3
  *
@@ -29,6 +50,16 @@
  * 1. select last element from the ".myList"
  * 2. wait 2 seconds and remove the element from the list
  */
+
+const removeLastChild = () => {
+  const selectedParent = document.querySelector(".myList");
+  (function () {
+    setTimeout(function () {
+      const lastChild = selectedParent.lastElementChild;
+      lastChild.remove();
+    }, 2000);
+  })(2000);
+};
 
 /**
  * Exercise 4
@@ -46,3 +77,24 @@
  * NOTE: check css file to see how we toggle styles
  * based on class "visible"
  */
+
+createAMessage = (message) => {
+  const newP = document.createElement("p");
+  newP.className = "message";
+  newP.innerText = message;
+  document.body.appendChild(newP);
+  (function () {
+    setTimeout(function () {
+      newP.classList.add("visible");
+      console.log("class visible added after 2s");
+      setTimeout(function () {
+        newP.classList.add("hide");
+        console.log("class hide added after 3s");
+        setTimeout(function () {
+          newP.remove();
+          console.log("newP Removed");
+        }, 2000);
+      }, 3000);
+    }, 3000);
+  })(3000);
+};
