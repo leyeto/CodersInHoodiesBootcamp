@@ -150,8 +150,6 @@ const handleSelectChange = () => {
  * and values, input values and log it in the console
  */
 
-const submitHand = (event = {});
-
 const submitFormHandler = () => {
   const first = document.querySelector('form [name="firstName"]');
   const last = document.querySelector('form [name="lastName"]');
@@ -175,3 +173,8 @@ const submitFormHandler = () => {
  * create a function {handleScroll} which will get window vertical scroll position
  * on scroll, and log it in the console
  */
+const handleScroll = () => {
+  window.addEventListener("scroll", (event) => {
+    console.log(window.scrollY);
+  });
+};

@@ -8,6 +8,20 @@
   </head>
   <body>
     <h1>Kitterest</h1>
+    <form method="post" enctype="multipart/form-data">
+      <div class="fileName">
+        <label for="profile_pic">Choose file to upload</label>
+        <input
+          type="file"
+          id="profile_pic"
+          name="profile_pic"
+          accept=".jpg, .jpeg, .png"
+        />
+      </div>
+      <div>
+        <button>Submit</button>
+      </div>
+    </form>
     <div class="post">
       <div class="img_wrapper">
         <img src="" alt="" />
