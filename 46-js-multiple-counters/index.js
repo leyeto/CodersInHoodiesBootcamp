@@ -33,7 +33,7 @@ function addTimer() {
     <button class="reset">Reset</button>
     <button class="stop">Stop</button>
   </div>`;
-  document.body.appendChild(timer);
+  timersContainerEl.appendChild(timer);
   // const resetButton = document.querySelector(".reset");
   // resetButton.addEventListener("click", (event) => {
   //   count = 0;
