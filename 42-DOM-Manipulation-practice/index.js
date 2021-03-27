@@ -23,6 +23,22 @@ const createAList = () => {
   }
 };
 
+const createAList = () => {
+  const ulEl = document.createElement("ul");
+  ulEl.className = "list";
+  document.body.appendChild(ulEl);
+
+  for (let index = 1; index <= 5; index++) {
+    const liEl = document.createElement("li");
+    liEl.innerText = `Item ${index}`;
+
+    setTimeout(() => {
+      console.log("setTimeout");
+      ulEl.appendChild(liEl);
+    }, 1000 * index);
+  }
+};
+
 /**
  * Exercise 2
  *
