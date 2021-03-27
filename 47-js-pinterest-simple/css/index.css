@@ -1,0 +1,12 @@
+html {
+  font-size: 17px;
+}
+
+.img_wrapper img {
+  height: 20rem;
+}
+.symbols {
+  display: flex;
+  height: 1rem;
+  justify-content: flex-end;
+}
