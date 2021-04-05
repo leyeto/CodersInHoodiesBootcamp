@@ -18,6 +18,28 @@ const input = document.querySelector("input");
  * `Request failed with status code: {errorCode}`
  */
 
+const getResponse = async (urlLink) => {
+  await fetch(urlLink).then((response) => {
+    console.log("We ran");
+    if (response.ok) {
+      result.innerHTML = `Valid link! <a href=${urlLink} target='_blank'>
+    </a>`;
+    } else {
+      result.innerText = `Request failed with status code: ${response.status}`;
+    }
+  });
+};
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  getResponse(input.value);
+});
+
+input.addEventListener("focus", (event) => {
+  input.value = "";
+  result.innerText = "";
+});
+
 /**
  * Description of the application:
  *
@@ -31,3 +53,25 @@ const input = document.querySelector("input");
  * 5. When I focus on input, it should clear my input and hide
  * {result}
  */
+
+// input.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   const web = input.value;
+//   fetch(web).then((response) => {
+//     if (response.ok) {
+//       result.innerText = `Valid link! ${web}`;
+//     } else {
+//       result.innerText = `Request failed with status code: ${response.status}`;
+//     }
+//   });
+// });
+
+// const getResponse = async (urlLink) => {
+//   const reply = await fetch(urlLink).then((response) => {
+//     if (response.ok) {
+//       result.innerText = `Valid link! ${urlLink}`;
+//     } else {
+//       result.innerText = `Request failed with status code: ${response.status}`;
+//     }
+//   });
+// };
