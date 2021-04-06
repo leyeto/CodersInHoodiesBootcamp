@@ -18,6 +18,23 @@ const input = document.querySelector("input");
  * string in {.result} element
  */
 
+const getResponse = async (urlLink) => {
+  await fetch(urlLink)
+    .then((response) => response.text())
+    .then((text) => {
+      result.innerText = text;
+    });
+};
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  getResponse(input.value);
+});
+
+input.addEventListener("focus", (event) => {
+  result.innerText = "";
+  input.value = "";
+});
 
 /**
  * Description of the application:
@@ -27,4 +44,3 @@ const input = document.querySelector("input");
  * 2. see the body of the response in {.result} element
  * 3. focus on input, clearing my previous input and hiding {.result} element
  */
-

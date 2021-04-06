@@ -17,6 +17,31 @@ const input = document.querySelector("input");
  * When you get a response, return an array of facts.
  */
 
+const fetchData = async (urlLink = "https://cat-fact.herokuapp.com/facts") => {
+  await fetch(urlLink)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("JSON is \n" + data);
+      const arrayOfFacts = [];
+      data.forEach((object) => {
+        Object.entries(object).forEach(([key, value]) => {
+          arrayOfFacts.push(key, value);
+        });
+      });
+
+      //   arrayOfFacts = JSON.parse(data);
+      console.log("Array of Facts is\n" + arrayOfFacts);
+      return arrayOfFacts;
+    });
+};
+
+button.addEventListener("click", (event) => {
+  const factText = document.querySelector(".fact");
+  const factAuthor = document.querySelector(".author");
+  factText.innerText = fetchData()[user];
+  factAuthor.innerText = fetchData()[text];
+});
+
 /**
  * Description of the application:
  *

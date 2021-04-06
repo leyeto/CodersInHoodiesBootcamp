@@ -20,7 +20,6 @@ const input = document.querySelector("input");
 
 const getResponse = async (urlLink) => {
   await fetch(urlLink).then((response) => {
-    console.log("We ran");
     if (response.ok) {
       result.innerHTML = `Valid link! <a href=${urlLink} target='_blank'>
     </a>`;
