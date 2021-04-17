@@ -18,28 +18,42 @@ const input = document.querySelector("input");
  */
 
 const fetchData = async (urlLink = "https://cat-fact.herokuapp.com/facts") => {
-  await fetch(urlLink)
+  return await fetch(urlLink)
     .then((response) => response.json())
     .then((data) => {
-      console.log("JSON is \n" + data);
-      const arrayOfFacts = [];
-      data.forEach((object) => {
-        Object.entries(object).forEach(([key, value]) => {
-          arrayOfFacts.push(key, value);
-        });
-      });
-
-      //   arrayOfFacts = JSON.parse(data);
-      console.log("Array of Facts is\n" + arrayOfFacts);
-      return arrayOfFacts;
+      return data;
     });
 };
 
-button.addEventListener("click", (event) => {
-  const factText = document.querySelector(".fact");
-  const factAuthor = document.querySelector(".author");
-  factText.innerText = fetchData()[user];
-  factAuthor.innerText = fetchData()[text];
+const getThreeFacts = async () => {
+  let randomNumbers = [];
+  let arrayOfFacts = [];
+  let dataObject = await fetchData();
+  let temp;
+  while (randomNumbers.length < 3) {
+    temp = Math.floor(Math.random() * 5);
+    if (randomNumbers.indexOf(temp) === -1) {
+      randomNumbers.push(temp);
+      arrayOfFacts.push(dataObject[temp]);
+    }
+  }
+  return arrayOfFacts;
+};
+
+const createFactElement = (fact, author) => {
+  return `<li>
+  <p class="fact">${fact}</p>
+  <p class="author">${author}</p>
+</li>`;
+};
+
+button.addEventListener("click", async (event) => {
+  result.innerHTML = "";
+  const threeFacts = await getThreeFacts();
+  threeFacts.forEach((fact) => {
+    const factElement = createFactElement(fact.text, fact.user);
+    result.innerHTML += factElement;
+  });
 });
 
 /**

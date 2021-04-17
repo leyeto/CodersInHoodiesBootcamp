@@ -21,6 +21,14 @@ const ingredients = [
  *
  */
 
+const asyncCookIngredient = (ingredient) => {
+  const promise = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(ingredient);
+    }, ingredient.time);
+  });
+  return promise;
+};
 
 /**
  * Exercise 2
@@ -41,3 +49,11 @@ const ingredients = [
  * }
  *
  */
+
+const asyncCookMeal = (ingredients) => {
+  let newArray = [];
+  for (let i = 0; i < ingredients.length; i++) {
+    newArray.push(asyncCookIngredient(ingredients[i]));
+  }
+  Promise.all(newArray);
+};
