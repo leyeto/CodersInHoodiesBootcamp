@@ -50,10 +50,77 @@ const asyncCookIngredient = (ingredient) => {
  *
  */
 
-const asyncCookMeal = (ingredients) => {
-  let newArray = [];
-  for (let i = 0; i < ingredients.length; i++) {
-    newArray.push(asyncCookIngredient(ingredients[i]));
-  }
-  Promise.all(newArray);
+const asyncCookMeal = (ingredientsToCook) => {
+  let maxCookTime = 0;
+  const bigPromise = new Promise((resolve) => {
+    const cookingDone = {
+      ingredientNames: [],
+      totalTime: 0,
+    };
+
+    for (let i = 0; i < ingredientsToCook.length; i++) {
+      if (maxCookTime < ingredientsToCook[i].time) {
+        maxCookTime = ingredientsToCook[i].time;
+      }
+    }
+
+    ingredientsToCook.forEach((ingredient) => {
+      cookingDone.ingredientNames.push(ingredient.name);
+      cookingDone.totalTime += ingredient.time;
+      asyncCookIngredient(ingredient);
+    });
+
+    setTimeout(() => {
+      resolve(cookingDone);
+    }, maxCookTime);
+  });
+
+  return bigPromise;
 };
+
+// const asyncCookMeal = (ingredientsToCook) => {
+//   let maxCookTime = 0;
+//   const bigPromise = new Promise((resolve) => {
+//     const cookingDone = {
+//       ingredientNames: [],
+//       totalTime: 0,
+//     };
+
+//     ingredientsToCook.forEach((ingredient) => {
+//       if (ingredient.time > maxCookTime) {
+//         maxCookTime = ingredient.time;
+//       }
+//       ingredientsToCook.ingredientNames.push(ingredient.name);
+//       ingredientsToCook.totalTime += ingredient.time;
+//       asyncCookIngredient(ingredient);
+//     });
+//     console.log("maxCookTime is " + maxCookTime);
+//     console.log("cookingDone is " + cookingDone);
+
+//     setTimeout(() => {
+//       resolve(cookingDone);
+//     }, maxCookTime);
+//   });
+//   console.log(bigPromise);
+
+//   return bigPromise;
+// };
+
+// OLD CODE
+
+// const asyncCookMeal = (ingredientsToCook) => {
+//   let totalCookTime = 0;
+//   ingredientsToCook.forEach((ingredient) => {
+//     totalCookTime += ingredient.time;
+//   });
+
+//   const cookedPromise = new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log("Food is ready");
+//       ingredientsToCook.forEach((ingredient) => {
+//         resolve(asyncCookIngredient(ingredient));
+//       });
+//     }, totalCookTime);
+//   });
+//   return cookedPromise;
+// };
