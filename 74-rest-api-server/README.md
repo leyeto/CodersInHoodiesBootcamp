@@ -53,5 +53,3 @@ NOTE: you can use `uuid` package to generate unique ids.
 - `GET` - Returns an order.
 - `PATCH` - updates an existing order by id. As a response returns modified order.
 - `DELETE` - removes an existing order by id. As a response returns id of deleted order.
-
-
