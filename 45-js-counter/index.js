@@ -16,11 +16,8 @@ const action = (symbol) => {
   if (symbol === "+") {
     corrector = step;
     step = parseInt(corrector);
-    console.log("Counter is a " + typeof counter);
-    console.log("Step is a  " + typeof step);
     counter += step;
     count.innerText = counter;
-    console.log("this line " + typeof count);
   } else if (symbol === "-") {
     counter -= step;
     count.innerText = counter;
@@ -46,8 +43,8 @@ stepButton.addEventListener("submit", (event) => {
   event.preventDefault();
   const stepParagraph = document.querySelector(".step_value");
   const stepInput = document.querySelector("#step");
-  step = stepInput.value;
-  stepParagraph.innerText = stepInput.value;
+  step = parseInt(stepInput.value);
+  stepParagraph.innerText = parseInt(stepInput.value);
   stepInput.value = 1;
 });
 
@@ -74,7 +71,7 @@ decrease.addEventListener("click", (event) => {
  * NOTE: remember to use your {action} function
  */
 
-const increase = document.querySelector('.inc_dec [id="increment"]');
+const increase = document.querySelector("#increment");
 increase.addEventListener("click", (event) => {
   action("+");
 });
@@ -88,13 +85,14 @@ increase.addEventListener("click", (event) => {
  * NOTE: ".counter_value" should represent current state of counter
  */
 let decreaser;
-const autoDecrement = document.querySelector(
-  '.auto_inc_dec [id="auto_decrement"]'
-);
+const autoDecrement = document.querySelector("#auto_decrement");
 autoDecrement.addEventListener("click", (event) => {
   clearTimeout(increaser);
   decreaser = setInterval(function () {
-    count.innerText -= step;
+    console.log("step is type " + typeof step);
+    let countNumber = parseInt(count.innerText);
+    count.innerText = countNumber - step;
+    // count.innerText -= step;
   }, 1000);
 });
 
@@ -107,9 +105,7 @@ autoDecrement.addEventListener("click", (event) => {
  * NOTE: ".counter_value" should represent current state of counter
  */
 let increaser;
-const autoIncrement = document.querySelector(
-  '.auto_inc_dec [id="auto_increment"]'
-);
+const autoIncrement = document.querySelector("#auto_increment");
 autoIncrement.addEventListener("click", (event) => {
   clearTimeout(decreaser);
   increaser = setInterval(function () {
@@ -129,7 +125,7 @@ autoIncrement.addEventListener("click", (event) => {
  * when the user clicks on "#stop_auto",
  * the auto counter should stop
  */
-const stopAuto = document.querySelector('.auto_inc_dec [id="stop_auto"]');
+const stopAuto = document.querySelector("#stop_auto");
 stopAuto.addEventListener("click", (event) => {
   clearTimeout(increaser);
   clearTimeout(decreaser);

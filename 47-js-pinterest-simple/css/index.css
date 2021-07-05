@@ -1,10 +1,20 @@
 html {
   font-size: 17px;
 }
+body {
+  width: 50vw;
+  align-content: center;
+  margin: 2rem 25%;
+}
 
-.img_wrapper img {
-  display: flex;
-  height: 30rem;
+.hide {
+  display: none;
+}
+
+.like {
+  background-image: url("/home/leye/Dropbox/Programming Folder/CodersInHoods/BootcampExercises/47-js-pinterest-simple/img/like_full.png");
+  src: url("img/like_full.png");
+  alt: "img/like_full.png";
 }
 
 .main-body {
@@ -12,6 +22,11 @@ html {
   justify-content: center;
   flex-direction: column;
   margin: 5% 15%;
+}
+
+.post_image {
+  display: flex;
+  height: 100;
 }
 
 .symbols {

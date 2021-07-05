@@ -3,58 +3,55 @@
  *
  */
 
-const addSymbols = () => {
-  const focusImage = document.querySelector(".symbols");
-  let like = document.createElement("img");
-  like.classList.add("likeTag");
-  like.src = "img/like_empty.png";
-  like.alt = "like image";
-  focusImage.appendChild(like);
-
-  like.addEventListener("dblclick", (event) => {
-    like.src = "img/like_full.png";
-  });
-
-  const comment = document.createElement("img");
-  comment.classList.add("commentTag");
-  comment.src = "img/comment_empty.png";
-  comment.alt = "Comment image";
-  focusImage.appendChild(comment);
-
-  comment.addEventListener("click", (event) => {
-    const newComment = document.createElement("textarea");
-    newComment.classList.add("newComment");
-    newComment.id = "newComment";
-    newComment.name = "newCommentIs";
-    newComment.placeholder = "Type your comment";
-    newComment.rows = 10;
-    newComment.cols = 100;
-
-    document.querySelector(".new_comment").appendChild(newComment);
-  });
+const liker = () => {
+  const likeSymbol = document.querySelector(".likeSymbol");
+  if ((likeSymbol.src = "img/like_empty.png")) {
+    likeSymbol.src = "img/like_full.png";
+  } else {
+    likeSymbol.src = "img/like_empty.png";
+  }
 };
 
-const imageFile = document.querySelector("#profile_pic");
-imageFile.addEventListener("change", (event) => {
-  const image = event.target || window.event.target,
-    files = image.files;
-
-  if (FileReader && files && files.length) {
-    const fr = new FileReader();
-    fr.onload = () => {
-      document.querySelector(".img_wrapper img").src = fr.result;
-    };
-    fr.readAsDataURL(files[0]);
+const unliker = () => {
+  const likeSymbol = document.querySelector(".likeSymbol");
+  if ((likeSymbol.src = "img/like_full.png")) {
+    likeSymbol.src = "img/like_empty.png";
   }
-
-  addSymbols();
+};
+const image = document.querySelector(".post_image");
+image.addEventListener("dblclick", () => {
+  const likeSymbol = document.querySelector(".likeSymbol");
+  likeSymbol.classList.toggle("liked");
+  if (likeSymbol.classList.contains("liked")) {
+    liker();
+  } else {
+    unliker();
+  }
 });
 
-// let uploadPic = document.querySelector("form");
-// uploadPic.addEventListener("submit", (event) => {
-//   event.preventDefault();
-//   const fileAddress = document.querySelector(".fileName");
-//   console.log("file address is " + fileAddress.webkitMatchesSelector);
-//   const image = document.querySelector(".img_wrapper img");
+const likeIcon = document.querySelector(".likeSymbol");
+likeIcon.addEventListener("click", () => {
+  likeIcon.classList.toggle("liked");
+  if (likeIcon.classList.contains("liked")) {
+    liker();
+  } else {
+    unliker();
+  }
+});
 
-// });
+const newCommentText = document.querySelector("textarea");
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log(newCommentText.value);
+  const userNewComment = newCommentText.value;
+  const commentToAdd = document.createElement("li");
+  commentToAdd.innerHTML = `<h3 class="username">username</h3><p>${userNewComment}</p>`;
+  document.querySelector(".panel").prepend(commentToAdd);
+  document.querySelector("textarea").value = "";
+  document.querySelector(".new_comment").classList.toggle("hide");
+});
+
+const commentIcon = document.querySelector(".comment");
+commentIcon.addEventListener("click", () => {
+  document.querySelector(".new_comment").classList.toggle("hide");
+});
